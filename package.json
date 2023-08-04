@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/SobujCh/textlog/issues"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@sobujch"
+  },
   "homepage": "https://github.com/SobujCh/textlog#readme"
 }
