@@ -1,5 +1,5 @@
 {
-  "name": "@sobujch/textlog",
+  "name": "textlog",
   "version": "1.0.2",
   "description": "Log text in console and file with timestamp.",
   "main": "index.js",
