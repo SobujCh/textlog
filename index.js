@@ -1,7 +1,7 @@
 var fs = require('fs').promises;
 var util = require('util');
 
-const logDir =__dirname + '/';
+let logDir = __dirname + '/';
 let currentDate = new Date()
 let currentDateTxt = currentDate.toISOString().split('T')[0];
 if (!fileExists(logDir)){ fs.mkdir(logDir); }
@@ -9,6 +9,11 @@ let log_file = false;
 const default_log_file = logDir+currentDateTxt+"-"+Date.now()+'.log'; 
 async function setName(name){
     log_file = logDir+name+'.log';
+}
+async function setDir(dir, relative = true){
+    if(relative){dir = __dirname + '/' + dir;}
+    if (!fileExists(dir)){ fs.mkdir(dir, { recursive: true }); }
+    logDir = dir;
 }
 async function currentDateTime(){
     const date = new Date();
@@ -66,4 +71,4 @@ async function fileExists(filePath) {
     }
 }
 
-module.exports = {setName,log,debuglog};
+module.exports = {setName,setDir,log,debuglog};
