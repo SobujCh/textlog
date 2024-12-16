@@ -14,41 +14,48 @@ npm i @sobujch/textlog
 ```
 
 ## Usage
+```javascript
+textlog("Your text goes here");
+//Output: 15-12-2024 18:16:12:646 : 'Your text goes here'
+
+debuglog("Your text goes here");
+//Will save to file but no console output
+```
 
 ### Importing the Module
 
 ```javascript
-const { setName, setDir, log, debuglog } = require('./index');
+const { setLogName, setLogDir, textlog, debuglog } = require('textlog');
 ```
 
 ### Setting the Log File Name
 
-You can set a custom log file name using the `setName` function:
+You can set a custom log file name using the `setLogName` function:
 
 ```javascript
-await setName('custom-log-file-name');
+await setLogName('custom-log-file-name');
 ```
 
 ### Setting the Log Directory
 
-You can set a custom log directory using the `setDir` function. By default, the directory is relative to the current directory:
+You can set a custom log directory using the `setLogDir` function. By default, the directory is relative to the current directory:
 
 ```javascript
-await setDir('logs');
+await setLogDir('logs');
 ```
 
 To set an absolute directory, pass `false` as the second argument:
 
 ```javascript
-await setDir('/absolute/path/to/logs', false);
+await setLogDir('/absolute/path/to/logs', false);
 ```
 
 ### Logging Messages
 
-To log messages to the console and the log file, use the `log` function:
+To log messages to the console and the log file, use the `textlog` function:
 
 ```javascript
-await log('This is a log message', { key: 'value' });
+await textlog('This is a log message', { key: 'value' });
 ```
 
 To log messages only to the log file, use the `debuglog` function:
@@ -59,20 +66,20 @@ await debuglog('This is a debug log message', { key: 'value' });
 
 ## Functions
 
-### `setName(name)`
+### `setLogName(name)`
 
 Sets the name of the log file.
 
 - `name` (string): The name of the log file.
 
-### `setDir(dir, relative = true)`
+### `setLogDir(dir, relative = true)`
 
 Sets the directory for the log files.
 
 - `dir` (string): The directory for the log files.
 - `relative` (boolean): Whether the directory is relative to the current directory. Default is `true`.
 
-### `log(...txt)`
+### `textlog(...txt)`
 
 Logs messages to the console and the log file, appending the current date and time.
 
@@ -94,4 +101,4 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 ## Contact
 
-For any questions or inquiries, please contact [your-email@example.com].
+For any questions or inquiries, please contact [sobujos@gmail.com].

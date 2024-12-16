@@ -7,10 +7,17 @@ let currentDateTxt = currentDate.toISOString().split('T')[0];
 if (!fileExists(logDir)){ fs.mkdir(logDir); }
 let log_file = false;
 const default_log_file = logDir+currentDateTxt+"-"+Date.now()+'.log'; 
-async function setName(name){
-    log_file = logDir+name+'.log';
+async function setLogName(name){
+    //check if name includes a file extension
+    if(name.includes('.')){
+        log_file = logDir+name;
+    }else{
+        log_file = logDir+name+'.log';
+    }
+
+
 }
-async function setDir(dir, relative = true){
+async function setLogDir(dir, relative = true){
     if(relative){dir = __dirname + '/' + dir;}
     if (!fileExists(dir)){ fs.mkdir(dir, { recursive: true }); }
     logDir = dir;
@@ -46,7 +53,7 @@ async function logFormatBW(...txt){
     }
     return logOutput.trim();
 }
-async function log(...txt){
+async function textlog(...txt){
     console.log(await logFormat(...txt));
     await debuglog(...txt);
 }
@@ -71,4 +78,4 @@ async function fileExists(filePath) {
     }
 }
 
-module.exports = {setName,setDir,log,debuglog};
+module.exports = {setLogName,setLogDir,textlog,debuglog};
