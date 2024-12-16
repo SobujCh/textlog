@@ -1,5 +1,2 @@
 # ignore ALL .log files
 *.log
-
-# ignore snippet.txt file
-snippet.txt
