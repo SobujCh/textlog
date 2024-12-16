@@ -9,7 +9,9 @@ Timestamps for each log entry.
 Option to log with or without colors.
 
 ## Installation
-To use this logging utility in your project, clone the repository and install the dependencies:
+```javascript
+npm i @sobujch/textlog
+```
 
 ## Usage
 
